@@ -39,10 +39,10 @@ contract OttoTheAutoBot is ERC20, Ownable, ReentrancyGuard {
   // variables 
   address public tokenA = 0xECCF35F941Ab67FfcAA9A1265C2fF88865caA005; // WLUNC Terra Bridge Token
   address public tokenB = 0x156ab3346823B651294766e23e6Cf87254d68962; // WLUNA Wormhole Token
-  address public tokenC = 0x000000000000000000000000000000000000dEaD; // Moonbase Token
-  address public tokenD = 0x000000000000000000000000000000000000dEaD; // Meteor Token
+  address public tokenC = 0xEe0038c41D4e5A2E043c8B84019B83F1D26a1525; // Moonbase Token
+  address public tokenD = 0xf5E378F0633eA7bE4CbdEdC47d7f74adFde5f3a1; // Meteor Token
   address public burnAddress = 0x000000000000000000000000000000000000dEaD; 
-  address public vault = 0x4d730375Eaa13456544743fcc521f6fBdbCB28FF; // Star System Labs Vault - MultiSig
+  address public vault = 0x52FC23AfB047C5eeD7CA5B03F1795CBe2731fFaA; // Star System Labs Vault - MultiSig
   uint256 public totalTokenVaulted = 0;
   uint256 public totalTokenBurnt = 0;
   uint256 public atokenVaulted = 0;
