@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: MIT 
 /*
           _____                    _____             _____                   _______                   _____                   _______           _____          
          /\    \                  /\    \           /\    \                 /::\    \                 /\    \                 /::\    \         /\    \         
@@ -37,11 +37,11 @@ contract OttoTheAutoBot is ERC20, Ownable, ReentrancyGuard {
   using SafeMath for uint256;
 
   // variables 
-  address tokenA = 0xECCF35F941Ab67FfcAA9A1265C2fF88865caA005; // WLUNC Terra Bridge Token
-  address tokenB = 0x156ab3346823B651294766e23e6Cf87254d68962; // WLUNA Wormhole Token
-  address tokenC = 0x000000000000000000000000000000000000dEaD; // Moonbase Token
-  address tokenD = 0x000000000000000000000000000000000000dEaD; // Meteor Token
-  address public burnAddress = 0x000000000000000000000000000000000000dEaD;
+  address public tokenA = 0xECCF35F941Ab67FfcAA9A1265C2fF88865caA005; // WLUNC Terra Bridge Token
+  address public tokenB = 0x156ab3346823B651294766e23e6Cf87254d68962; // WLUNA Wormhole Token
+  address public tokenC = 0x000000000000000000000000000000000000dEaD; // Moonbase Token
+  address public tokenD = 0x000000000000000000000000000000000000dEaD; // Meteor Token
+  address public burnAddress = 0x000000000000000000000000000000000000dEaD; 
   address public vault = 0x4d730375Eaa13456544743fcc521f6fBdbCB28FF; // Star System Labs Vault - MultiSig
   uint256 public totalTokenVaulted = 0;
   uint256 public totalTokenBurnt = 0;
@@ -51,12 +51,12 @@ contract OttoTheAutoBot is ERC20, Ownable, ReentrancyGuard {
   uint256 public btokenBurnt = 0;
 
   // Token C Allowance Mapping
-  mapping(address => uint256) internal aTocTokenTrackerBalance;
-  mapping(address => uint256) internal bTocTokenTrackerBalance;
+  mapping(address => uint256) public aTocTokenTrackerBalance;
+  mapping(address => uint256) public bTocTokenTrackerBalance;
 
   // Token D Allowance Mapping
-  mapping(address => uint256) internal aTodTokenTrackerBalance;
-  mapping(address => uint256) internal bTodTokenTrackerBalance;
+  mapping(address => uint256) public aTodTokenTrackerBalance;
+  mapping(address => uint256) public bTodTokenTrackerBalance;
 
   // interface
   IERC20 ATOKEN = IERC20(tokenA);
