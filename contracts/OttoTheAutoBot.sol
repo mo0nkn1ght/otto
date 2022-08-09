@@ -39,8 +39,8 @@ contract OttoTheAutoBot is ERC20, Ownable, ReentrancyGuard {
   // variables 
   address public tokenA = 0xECCF35F941Ab67FfcAA9A1265C2fF88865caA005; // WLUNC Terra Bridge Token
   address public tokenB = 0x156ab3346823B651294766e23e6Cf87254d68962; // WLUNA Wormhole Token
-  address public tokenC = 0xEe0038c41D4e5A2E043c8B84019B83F1D26a1525; // Moonbase Token
-  address public tokenD = 0xf5E378F0633eA7bE4CbdEdC47d7f74adFde5f3a1; // Meteor Token
+  address public tokenC = ; // Moonbase Token
+  address public tokenD = ; // Meteor Token
   address public burnAddress = 0x000000000000000000000000000000000000dEaD; 
   address public vault = 0x52FC23AfB047C5eeD7CA5B03F1795CBe2731fFaA; // Star System Labs Vault - MultiSig
   uint256 public totalTokenVaulted = 0;
@@ -99,7 +99,7 @@ contract OttoTheAutoBot is ERC20, Ownable, ReentrancyGuard {
      ATOKEN.transfer(burnAddress , burnCut);
 
      // transfer of token c 
-     CTOKEN.transfer(msg.sender, amountToSend * 1/10000);
+     CTOKEN.transfer(msg.sender, amountToSend * 1/1000);
 
      // update of mapping
      aTocTokenTrackerBalance[msg.sender] = 0;
@@ -149,7 +149,7 @@ contract OttoTheAutoBot is ERC20, Ownable, ReentrancyGuard {
      BTOKEN.transfer(burnAddress , burnCut);
 
      // transfer of token c 
-     CTOKEN.transfer(msg.sender, amountToSend * 1/10000);
+     CTOKEN.transfer(msg.sender, amountToSend * 1/1000);
 
      // update of mapping
      bTocTokenTrackerBalance[msg.sender] = 0;
@@ -199,7 +199,7 @@ contract OttoTheAutoBot is ERC20, Ownable, ReentrancyGuard {
      ATOKEN.transfer(burnAddress , burnCut);
 
      // transfer of token d 
-     DTOKEN.transfer(msg.sender, amountToSend * 1/10000000);
+     DTOKEN.transfer(msg.sender, amountToSend * 1/1000000);
 
      // update of mapping
      aTodTokenTrackerBalance[msg.sender] = 0;
@@ -249,7 +249,7 @@ contract OttoTheAutoBot is ERC20, Ownable, ReentrancyGuard {
      BTOKEN.transfer(burnAddress , burnCut);
 
      // transfer of token d 
-     DTOKEN.transfer(msg.sender, amountToSend * 1/10000000);
+     DTOKEN.transfer(msg.sender, amountToSend * 1/1000000);
 
      // update of mapping
      bTodTokenTrackerBalance[msg.sender] = 0;
@@ -266,7 +266,7 @@ contract OttoTheAutoBot is ERC20, Ownable, ReentrancyGuard {
 
   // ================== B to D Functions END =======================
 
-  // ================== Set Functions START =======================
+  // ================== Control Panel Functions START =======================
 
   function setConfigAddresses(address _tokenA,address _tokenB,address _tokenC,address _tokenD,address _vault) public onlyOwner {
       tokenA = _tokenA;
@@ -277,5 +277,10 @@ contract OttoTheAutoBot is ERC20, Ownable, ReentrancyGuard {
 
   }
 
-  // ================== Set Functions END =======================
+  function withdrawTokens(address _tokenContract, uint256 _amount) external {
+    IERC20 tokenContract = IERC20(_tokenContract);
+    tokenContract.transfer(msg.sender, _amount);
+  } 
+
+  // ================== Control Panel Functions END =======================
 }
